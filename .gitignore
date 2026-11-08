@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.pytest_cache/
+
+# Secrets aur local data (ye kabhi GitHub par nahi jane chahiye)
+.env
+instance/
+*.db
+sandbox/
+results/
+backup_*.sql
+
+# Editor
+.vscode/
+.idea/

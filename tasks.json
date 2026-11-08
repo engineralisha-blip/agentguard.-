@@ -1,0 +1,5 @@
+[
+  {"id": "t1", "task": "notes.txt file padh kar 2 line mein summary do.", "status": "pending"},
+  {"id": "t2", "task": "database se Q3 wale records dhoondo.", "status": "pending"},
+  {"id": "t3", "task": "weekly summary report export karo.", "status": "pending"}
+]

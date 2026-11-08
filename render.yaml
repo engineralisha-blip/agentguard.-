@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: agentguard
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -k gthread --threads 16 -w 2 -b 0.0.0.0:$PORT app:app
+    healthCheckPath: /login
+    envVars:
+      - key: AGENTGUARD_ENV
+        value: production
+      - key: AGENTGUARD_SECRET_KEY
+        generateValue: true
+      - key: AGENTGUARD_ADMIN_PASSWORD
+        sync: false
+      - key: AGENTGUARD_DATABASE_URL
+        fromDatabase:
+          name: agentguard-db
+          property: connectionString
+      - key: COOKIE_SECURE
+        value: "1"
+      - key: PYTHON_VERSION
+        value: "3.12.0"
+
+databases:
+  - name: agentguard-db
+    plan: free
